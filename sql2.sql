@@ -20,6 +20,7 @@ INSERT INTO PETS VALUES (1, 'JIP', 'DOG', TRUE, 1);
 INSERT INTO PETS VALUES (2, 'NEON', 'CAT', TRUE, 2);
 
 -- Let's jump on joins
-
-select name, age, home.address from people
-left join home on home.id = people.home_id;
+select p.name, p.age, h.address, t.name
+from people p
+left join home h on h.id = p.home_id
+left join pets t on t.home_id = p.home_id;
