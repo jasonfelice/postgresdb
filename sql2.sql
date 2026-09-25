@@ -19,8 +19,11 @@ INSERT INTO PETS VALUES (0, 'MAYA', 'DOG', FALSE, 0);
 INSERT INTO PETS VALUES (1, 'JIP', 'DOG', TRUE, 1);
 INSERT INTO PETS VALUES (2, 'NEON', 'CAT', TRUE, 2);
 
+INSERT INTO PETS VALUES (3, 'ROCKY', 'DOG', FALSE, 0);
+INSERT INTO PETS VALUES (4, 'LUNA', 'CAT', TRUE, 0);
+
 -- Let's jump on joins
 select p.name, p.age, h.address, t.name
-from people p
-left join home h on h.id = p.home_id
-left join pets t on t.home_id = p.home_id;
+from home h
+left join people p on h.id = p.home_id
+left join pets t on t.home_id = h.id;
