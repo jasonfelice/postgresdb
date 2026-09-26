@@ -44,3 +44,27 @@ INSERT INTO PET VALUES (3, 'NEON', 'CAT', 2);
 INSERT INTO PET VALUES (4, 'ROCKY', 'DOG', 2);
 
 INSERT INTO PET VALUES (5, 'PIP', 'BIRD', 3);
+
+
+
+select a.address, p.name
+from apartment a
+left join people p on p.apartment_id = a.id;
+
+select a.address, t.name
+from apartment a
+left join pet t on t.apartment_id = a.id;
+
+select p.name, a.address
+from people p
+left join apartment a on p.apartment_id = a.id;
+
+select a.address
+from apartment a
+left join people p on p.apartment_id = a.id
+where p.apartment_id is null;
+
+select a.address, t.name
+from apartment a
+left join pet t on t.apartment_id = a.id
+where t.apartment_id is null;
