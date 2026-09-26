@@ -68,3 +68,18 @@ select a.address, t.name
 from apartment a
 left join pet t on t.apartment_id = a.id
 where t.apartment_id is null;
+
+select a.address, p.name, t.name
+from apartment a
+left join people p on p.apartment_id = a.id
+left join pet t on t.apartment_id = a.id;
+
+select a.address, count(p.id) as total_residents
+from apartment a
+left join people p on p.apartment_id = a.id
+group by a.address;
+
+select a.address, count(t.id) as total_residents
+from apartment a
+left join pet t on t.apartment_id = a.id
+group by a.address;
